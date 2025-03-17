@@ -15,7 +15,9 @@ class CustomButtomRectangle extends StatelessWidget {
           backgroundColor: Colors.black,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-          padding: const EdgeInsets.symmetric(horizontal: 165, vertical: 10)),
+          padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * 0.368,
+              vertical: MediaQuery.of(context).size.width * 0.0005)),
       child: Text(
         text,
         style: const TextStyle(color: Colors.white, fontSize: 18),

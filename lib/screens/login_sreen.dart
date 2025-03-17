@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:unify/screens/home_screen.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
@@ -68,20 +70,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   ? const CircularProgressIndicator()
                   : CustomButtomRectangle(
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/home');
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ),
+                        );
                       },
                       text: 'Login'),
               const SizedBox(height: 10),
-              const Text.rich(TextSpan(
+              Text.rich(TextSpan(
                   text: "You don't have an account yet? ",
-                  style: TextStyle(fontSize: 16),
+                  style: const TextStyle(fontSize: 16),
                   children: [
                     TextSpan(
                         text: 'Sign Up',
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
-                            color: Colors.blueAccent))
+                            color: Colors.blueAccent),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.pushReplacementNamed(context, '/sign-up');
+                          })
                   ]))
             ],
           ),

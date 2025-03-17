@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:unify/screens/LoginSreen.dart';
+import 'package:unify/screens/login_sreen.dart';
 import 'package:unify/screens/home_screen.dart';
+import 'package:unify/screens/sign_up_screen.dart';
 
 void main() => runApp(const Unify());
 
@@ -32,7 +33,8 @@ class Unify extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginScreen(),
-        '/home': (context) => const HomeScreen()
+        '/home': (context) => HomeScreen(),
+        '/sign-up': (context) => const SignUpScreen()
       },
     );
   }
