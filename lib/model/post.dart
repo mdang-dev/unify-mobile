@@ -1,14 +1,30 @@
+import 'package:unify/model/hashtag.dart';
+import 'package:unify/model/media.dart';
+import 'package:unify/model/user.dart';
+
 class Post {
-  final String username;
-  final String imageUrl;
-  final String caption;
-  final List<String> hashtags;
-  final int likes;
+  
+  final String id;
+  final String captions;
+  final int status;
+  final String audience;
+  User user;
+  final DateTime postedAt;
+  final bool isCommentVisible;
+  final bool isLikeVisible;
+  final List<Media> media;
+  final List<Hashtag>? hashtags;
 
   Post(
-      {required this.username,
-      required this.imageUrl,
-      required this.caption,
-      required this.hashtags,
-      required this.likes});
+      {required this.id,
+      required this.captions,
+      required this.status,
+      required this.audience,
+      required this.user,
+      required this.postedAt,
+      required this.isCommentVisible,
+      required this.isLikeVisible,
+      required this.media,
+      this.hashtags});
+  
 }

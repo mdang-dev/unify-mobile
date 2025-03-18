@@ -29,17 +29,16 @@ class PostCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    post.username,
+                    post.user.username,
                     style: const TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 16),
                   )
                 ],
               )),
-          Image.network(post.imageUrl),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              post.caption,
+              post.captions,
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
           ),
@@ -48,11 +47,11 @@ class PostCard extends StatelessWidget {
             child: Wrap(
                 spacing: 1.0,
                 runSpacing: 1.0,
-                children: post.hashtags
+                children: post.hashtags!
                     .map((hashtag) => Padding(
                           padding: const EdgeInsets.only(right: 4.0),
                           child: Text(
-                            hashtag,
+                            hashtag.content,
                             style: const TextStyle(color: Colors.blueAccent),
                           ),
                         ))
