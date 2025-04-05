@@ -8,12 +8,12 @@ class Post {
   final String captions;
   final int status;
   final String audience;
-  User user;
+  final User user;
   final DateTime postedAt;
   final bool isCommentVisible;
   final bool isLikeVisible;
   final List<Media> media;
-  final List<Hashtag>? hashtags;
+  final List<Hashtag> hashtags;
 
   Post(
       {required this.id,
@@ -25,6 +25,6 @@ class Post {
       required this.isCommentVisible,
       required this.isLikeVisible,
       required this.media,
-      this.hashtags});
+      required this.hashtags});
   
 }

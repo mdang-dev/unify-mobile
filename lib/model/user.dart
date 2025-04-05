@@ -1,7 +1,10 @@
 import 'package:unify/model/role.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'user.g.dart';
+
+@JsonSerializable()
 class User {
-
   final String id;
   String firstName;
   String lastName;
@@ -32,4 +35,7 @@ class User {
       required this.location,
       required this.roles,
       required this.workAt});
+
+  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  Map<String, dynamic> toJson() => _$UserToJson(this);
 }

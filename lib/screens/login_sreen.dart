@@ -41,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
@@ -56,15 +57,23 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               CustomTextField(
-                  labelText: 'Email',
-                  hintText: 'Email',
-                  controller: _emailController),
+                labelText: 'Email',
+                hintText: 'Email',
+                controller: _emailController,
+                validator: (value) {
+                  return null;
+                },
+              ),
               const SizedBox(height: 20),
               CustomTextField(
-                  labelText: 'Password',
-                  hintText: 'Password',
-                  obscureText: true,
-                  controller: _passwordController),
+                labelText: 'Password',
+                hintText: 'Password',
+                obscureText: true,
+                controller: _passwordController,
+                validator: (value) {
+                  return null;
+                },
+              ),
               const SizedBox(height: 20),
               _isLoading
                   ? const CircularProgressIndicator()

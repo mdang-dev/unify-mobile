@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:unify/screens/login_sreen.dart';
 import 'package:unify/screens/home_screen.dart';
 import 'package:unify/screens/sign_up_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() => runApp(const Unify());
+void main() async{
+  await dotenv.load(fileName: ".env");
+  runApp(const Unify());
+}
 
 class Unify extends StatelessWidget {
   const Unify({super.key});
