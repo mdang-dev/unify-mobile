@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hugeicons/hugeicons.dart';
+import 'package:unify/constants/assets.dart';
 import 'package:unify/model/hashtag.dart';
 import 'package:unify/model/media.dart';
 import 'package:unify/model/post.dart';
@@ -159,15 +161,48 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page !'),
-        ),
-        body: ListView.builder(
-          itemCount: _posts.length,
-          itemBuilder: (context, index) {
-            final post = _posts[index];
-            return PostCard(post: post);
-          },
+        backgroundColor: Colors.white,
+        body: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+                child: Padding(
+              padding: const EdgeInsets.only(top: 25, left: 10, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    Assets.logo,
+                    width: 100,
+                  ),
+                  Row(
+                    children: [
+                      IconButton(
+                          onPressed: () {},
+                          icon: HugeIcon(
+                              icon: HugeIcons.strokeRoundedFavourite,
+                              color: Colors.black)),
+                      IconButton(
+                          onPressed: () {},
+                          icon: HugeIcon(
+                              icon: HugeIcons.strokeRoundedNotification01,
+                              color: Colors.black)),
+                      IconButton(
+                          onPressed: () {},
+                          icon: HugeIcon(
+                              icon: HugeIcons.strokeRoundedMessage02,
+                              color: Colors.black))
+                    ],
+                  )
+                ],
+              ),
+            )),
+            SliverList(
+                delegate: SliverChildBuilderDelegate((context, index) {
+              final post = _posts[index];
+              return PostCard(post: post);
+            }, childCount: _posts.length))
+          ],
         ));
   }
 }

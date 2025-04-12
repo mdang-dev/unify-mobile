@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:unify/screens/home_screen.dart';
+import 'package:unify/constants/assets.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.only(right: 20.0),
                 child: Image.asset(
-                  'assets/images/unify_1.png', // Your image path
+                  Assets.logo, // Your image path
                   width: 200,
                   height: 200,
                 ),
@@ -79,12 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ? const CircularProgressIndicator()
                   : CustomButtomRectangle(
                       onPressed: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => HomeScreen(),
-                          ),
-                        );
+                        Navigator.pushReplacementNamed(context, '/home');
                       },
                       text: 'Login'),
               const SizedBox(height: 10),

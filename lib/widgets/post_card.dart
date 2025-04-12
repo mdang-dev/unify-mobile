@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:unify/model/post.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:video_player/video_player.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class PostCard extends StatefulWidget {
   final Post post;
@@ -58,6 +57,7 @@ class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       margin: const EdgeInsets.all(10),
       elevation: 0,
       child: Column(
@@ -126,25 +126,26 @@ class _PostCardState extends State<PostCard> {
                     return Builder(
                       builder: (BuildContext context) {
                         if (item.mediaType == 'video') {
-                          // Ensure that video is initialized
-
                           if (_videoPlayerController?.value.isInitialized ??
                               false) {
                             return AspectRatio(
                               aspectRatio:
                                   _videoPlayerController!.value.aspectRatio,
-                              child: VideoPlayer(_videoPlayerController!),
+                              child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(10),
+                                  child: VideoPlayer(_videoPlayerController!)),
                             );
                           } else {
-                            // Show loading indicator until the video is initialized
                             return const Center(
                                 child: CircularProgressIndicator());
                           }
                         } else {
-                          // If it's an image, return the image widget
-                          return Image.network(
-                            item.url,
-                            fit: BoxFit.cover,
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.network(
+                              item.url,
+                              fit: BoxFit.cover,
+                            ),
                           );
                         }
                       },
@@ -159,8 +160,8 @@ class _PostCardState extends State<PostCard> {
                     return AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       margin: const EdgeInsets.symmetric(horizontal: 5),
-                      height: 10,
-                      width: 10,
+                      height: 5,
+                      width: 5,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: _currentIndex == index
@@ -180,14 +181,11 @@ class _PostCardState extends State<PostCard> {
                 // Heart Icon for Likes
                 IconButton(
                   icon: const Icon(
-                    FontAwesomeIcons
-                        .heart, // Change to Icons.favorite for liked state
+                    FontAwesomeIcons.heart,
                     size: 20,
                     color: Colors.black,
                   ),
-                  onPressed: () {
-                    // Action to toggle like status
-                  },
+                  onPressed: () {},
                 ),
                 IconButton(
                   icon: const Icon(
@@ -195,9 +193,7 @@ class _PostCardState extends State<PostCard> {
                     size: 20,
                     color: Colors.black,
                   ),
-                  onPressed: () {
-                    // Action to open comment section
-                  },
+                  onPressed: () {},
                 ),
                 IconButton(
                   icon: const Icon(
@@ -205,21 +201,16 @@ class _PostCardState extends State<PostCard> {
                     size: 20,
                     color: Colors.black,
                   ),
-                  onPressed: () {
-                    // Action for share button
-                  },
+                  onPressed: () {},
                 ),
                 const Spacer(),
                 IconButton(
                   icon: const Icon(
-                    Icons
-                        .bookmark_border, // Change to Icons.bookmark for saved state
+                    Icons.bookmark_border,
                     size: 20,
                     color: Colors.black,
                   ),
-                  onPressed: () {
-                    // Action for saving post
-                  },
+                  onPressed: () {},
                 ),
               ],
             ),

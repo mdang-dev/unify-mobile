@@ -230,6 +230,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  fluentui_icons:
+    dependency: "direct main"
+    description:
+      name: fluentui_icons
+      sha256: "5944d9a0d52df1c63107abd00c8f4e81c6c1f7961347ccd88c9532a42327e0ae"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -389,6 +397,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  hugeicons:
+    dependency: "direct main"
+    description:
+      name: hugeicons
+      sha256: d7dd54ca1faf91b12a4b5eb9d2ce2bce3066dc0cae7209c0ddfc29e7bb48c045
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.10"
   io:
     dependency: transitive
     description:

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:unify/screens/login_sreen.dart';
-import 'package:unify/screens/home_screen.dart';
 import 'package:unify/screens/sign_up_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:unify/widgets/custom_bottom_nav_bar.dart';
 
-void main() async{
+void main() async {
   await dotenv.load(fileName: ".env");
   runApp(const Unify());
 }
@@ -37,7 +37,7 @@ class Unify extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LoginScreen(),
-        '/home': (context) => HomeScreen(),
+        '/home': (context) => const MainNavigationPage(),
         '/sign-up': (context) => const SignUpScreen()
       },
     );
